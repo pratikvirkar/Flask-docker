@@ -20,7 +20,7 @@ def user_login():
 
     uname = formdata.get('username')
     pwd = formdata.get('password')
-    if uname in ["yogesh","akshay","amit"] and pwd == "yogesh123":
+    if uname in ["yogesh","akshay","amit","admin"] and pwd == "admin123":
         return render_template('home.html',username = uname)
     else:
         return render_template('index.html',message = "Invalid Credentials..!")
