@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+</head>
+<body>
+
+  <h1>Welcome,{{username}}</h1>
+
+    <form action="/product/save" method="post">
+        Product Id : <input type="text" name="product_id"> <br><br>
+        Product Name : <input type="text" name="product_name"> <br><br>
+        Product Price : <input type="text" name="product_price"> <br><br>
+        Product Quantity : <input type="text" name="product_qty"> <br><br>
+        Product Vendor : <input type="text" name="product_ven"> <br><br>
+        Product Type1 :
+                <input type="radio" value="A" name="type1"> T-Shirt1
+                 <input type="radio" value="B" name="type1"> T-Shirt2
+                 <input type="radio" value="C" name="type1"> T-Shirt3
+<br><br>
+        Product Type2 :
+                <input type="checkbox" value="X" name="type2"> T-Shirt1
+                 <input type="checkbox" value="Y" name="type2"> T-Shirt2
+                 <input type="checkbox" value="Z" name="type2"> T-Shirt3
+<br><br>
+
+
+        Product Type3 :
+                    <select name="type3">
+                        <option value="P">T-Shirt1</option>
+                        <option value="Q">T-Shirt2</option>
+                        <option value="R">T-Shirt3</option>
+                    </select>
+<br><br>
+       Product Type4 :
+                <select name="type4" multiple>
+                    <option value="L">T-Shirt1</option>
+                    <option value="M">T-Shirt2</option>
+                    <option value="N">T-Shirt3</option>
+                </select>
+     <br><br>
+        <input type="submit" name="save" value="save">
+    </form>
+
+
+    <hr>
+    <table border="1">
+            <thead>
+                    <th>Product Id</th>
+                    <th>Product Name</th>
+                    <th>Product Price</th>
+                    <th>Product Qty</th>
+                    <th>Product Vendor</th>
+                    <th>Product Type1 </th>
+                     <th>Product Type2 </th>
+                     <th>Product Type4 </th>
+            </thead>
+            <tbody>
+                {% for prod in product_list %}
+                    <tr>
+                        <td>{{prod.prod_id}}</td>
+                        <td>{{prod.prod_name}}</td>
+                        <td>{{prod.prod_price}}</td>
+                        <td>{{prod.prod_qty}}</td>
+                        <td>{{prod.prod_ven}}</td>
+                         <td>{{prod.type1}}</td>
+                        <td>{{prod.type2}}</td>
+                        <td>{{prod.type4}}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+    </table>
+
+</body>
+</html>
